@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Memory Buttons</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="controls">
+    <label for="btnCount" id="countLabel">How many buttons to create?</label>
+    <input id="btnCount" type="number" min="3" max="7" inputmode="numeric" />
+    <button id="goBtn" type="button">Go</button>
+    <span id="status" class="status" aria-live="polite"></span>
+  </header>
+
+  <!-- Play field (buttons are rendered here) -->
+  <main id="playfield" class="playfield playfield--row" aria-label="Game area"></main>
+
+  
+  <!-- load messages  -->
+  <script src="lang/messages/en/user.js" defer></script>
+  <!-- boot module -->
+  <script type="module" src="js/script.js"></script>
+</body>
+</html>

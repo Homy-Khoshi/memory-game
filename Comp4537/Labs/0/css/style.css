@@ -1,0 +1,102 @@
+/**
+ * style.css
+ * Author: Homayoun Khoshi
+ * This file contains all the styling for the project
+ * Note: ChatGPT was used for ideation and debugging.
+ */
+:root{
+  --gap: 0.75rem;
+  --btn-w: 10em;
+  --btn-h: 5em;
+  --radius: 0.8rem;
+  --row-padding: 1rem;
+  --font: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: #0f1115;
+  color: #e9eef7;
+}
+
+.controls{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+  padding: 0.9rem 1rem;
+  background: #151923;
+  border-bottom: 1px solid #1f2431;
+}
+
+.controls input, .controls button {
+  font: inherit;
+  padding: .5rem .8rem;
+  border-radius: .6rem;
+  border: 1px solid #2a3344;
+  background: #0f1320;
+  color: #e9eef7;
+  outline: none;
+}
+
+.controls button {
+  cursor: pointer;
+  background: #1b5cff;
+  border-color: #1b5cff;
+}
+.controls button:disabled{ opacity:.6; cursor:not-allowed;}
+
+.status {
+  margin-left: auto;
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+
+.playfield {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  padding: var(--row-padding);
+  overflow: hidden;
+}
+
+/* Initial layout: next to each other in a row (wrap if window is narrow) */
+.playfield--row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  align-content: flex-start;
+}
+
+/* Scramble phase: we pin the playfield to the viewport so absolute px placement
+   aligns with the current window size exactly. */
+.playfield--fixed {
+  position: fixed;
+  inset: 60px 0 0 0; /* below the sticky header */
+  width: 100vw;
+  height: calc(100vh - 60px);
+}
+
+.btn-tile{
+  width: var(--btn-w);
+  height: var(--btn-h);
+  border-radius: var(--radius);
+  border: 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,.35);
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: .5px;
+  color: #ffffff;
+  cursor: default;
+}
+
+/* Disabled click state while scrambling */
+.btn-tile[aria-disabled="true"]{ pointer-events: none; filter: saturate(.7) brightness(.9); }
+
+/* When absolute, we’ll move with top/left in JS */
+.btn-absolute{ position: absolute; }
