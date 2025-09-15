@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Writer</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2 id="title"></h2>
+      <span class="timepill" id="time"></span>
+    </div>
+
+    <div id="stack" class="stack" aria-live="polite"></div>
+    <div id="addWrap" class="footer"></div>
+
+    <div class="footer">
+      <a id="backBtn" class="button-link card-link" href="index.html"></a>
+    </div>
+  </div>
+
+  <script src="lang/messages/en/user.js"></script>
+  <script type="module" src="js/storage.js"></script>
+  <script type="module" src="js/components.js"></script>
+  <script type="module" src="js/writer.js"></script>
+</body>
+</html>
